@@ -9,27 +9,19 @@
 
 <style>
 :root {
-    --gold: #d4a85a;
-    --cream: #f2d2a2;
-    --dark: #0f1720;
+    --primary: #0A66C2; /* strong blue */
+    --accent: #b45309; /* strong brown/orange */
 }
 
 /* BACKGROUND */
 body {
     margin: 0;
     font-family: 'Outfit', sans-serif;
-    color: white;
-    background: linear-gradient(135deg, #f2d2a2, #d4a85a, #0f1720);
-    background-size: 300% 300%;
-    animation: bgMove 10s ease infinite;
+    color: black;
+    background: linear-gradient(135deg, #f8f4ec, #f1e6d6);
 }
 
-@keyframes bgMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
+/* CONTAINER */
 .container {
     max-width: 1100px;
     margin: auto;
@@ -42,16 +34,14 @@ body {
     padding: 4rem 0;
 }
 
-/* PROFILE IMAGE */
+/* PROFILE */
 .profile-wrapper {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
     margin: auto;
     border-radius: 50%;
     padding: 5px;
-    background: linear-gradient(135deg, var(--gold), var(--cream));
-    box-shadow: 0 0 40px rgba(212,168,90,0.6);
-    animation: float 4s ease-in-out infinite;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
 }
 
 .profile-img {
@@ -61,25 +51,16 @@ body {
     object-fit: cover;
 }
 
-/* FLOAT ANIMATION */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0px); }
-}
-
 /* TEXT */
 .hero-title {
     font-size: 3rem;
     margin-top: 20px;
-    background: linear-gradient(90deg, #0f1720, #d4a85a);
-    -webkit-background-clip: text;
-    color: transparent;
+    color: black;
 }
 
 .hero-subtitle {
-    color: #ddd;
     margin-top: 10px;
+    color: #333;
 }
 
 .contact-bar {
@@ -87,35 +68,38 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    color: #ccc;
+    color: #444;
     font-size: 0.9rem;
+}
+
+/* LINKEDIN ICON */
+.socials {
+    margin-top: 20px;
+}
+
+.socials a svg {
+    width: 32px;
+    transition: 0.3s;
+}
+
+.socials a:hover svg {
+    transform: scale(1.2);
 }
 
 /* SECTION */
 .section-title {
     font-size: 1.6rem;
     margin: 3rem 0 1rem;
-    position: relative;
-}
-
-.section-title::after {
-    content: "";
-    display: block;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin-top: 10px;
+    color: black;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
 /* VIDEO */
 .video-main {
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
-    transform: perspective(1000px) rotateX(5deg);
-    transition: 0.5s;
-}
-
-.video-main:hover {
-    transform: perspective(1000px) rotateX(0deg) scale(1.02);
 }
 
 /* EXPERIENCE */
@@ -126,21 +110,31 @@ body {
 }
 
 .exp-card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
+    background: white;
+    border-radius: 10px;
     padding: 20px;
-    transition: 0.4s;
+    transition: 0.3s;
+    border: 1px solid #ddd;
 }
 
 .exp-card:hover {
-    transform: rotateY(5deg) rotateX(5deg) scale(1.05);
-    box-shadow: 0 0 25px rgba(212,168,90,0.5);
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .exp-card h3 {
-    color: var(--gold);
-    margin: 5px 0;
+    color: var(--accent);
+}
+
+/* COMPANY LINKS */
+.exp-card a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.exp-card a:hover {
+    text-decoration: underline;
 }
 
 /* SKILLS */
@@ -152,25 +146,22 @@ body {
 
 .skill-chip {
     padding: 10px 18px;
-    border-radius: 30px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    background: #eee;
     transition: 0.3s;
 }
 
 .skill-chip:hover {
-    background: var(--gold);
-    color: black;
-    transform: scale(1.1);
+    background: var(--primary);
+    color: white;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 4rem 0;
-    color: #ccc;
+    color: #444;
 }
-
 </style>
 </head>
 
@@ -178,7 +169,6 @@ footer {
 
 <header class="container hero">
 
-    <!-- REPLACE IMAGE PATH HERE -->
     <div class="profile-wrapper">
         <img src="Fakhir%20Picture.jpeg" class="profile-img">
     </div>
@@ -192,13 +182,25 @@ footer {
         <span>✉️ fakhirhumayoun56@gmail.com</span>
     </div>
 
+    <!-- LinkedIn Official Icon -->
+    <div class="socials">
+        <a href="https://www.linkedin.com/in/fakhir-humayoun-2b4b013b9/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="#0A66C2">
+                <path d="M20.447 20.452H16.89V14.89c0-1.328-.024-3.036-1.85-3.036-1.851 0-2.134 1.445-2.134 2.94v5.658H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.604 0 4.267 2.372 4.267 5.455v6.286zM5.337 7.433a1.986 1.986 0 1 1 0-3.971 1.986 1.986 0 0 1 0 3.971zM6.99 20.452H3.683V9H6.99v11.452z"/>
+            </svg>
+        </a>
+    </div>
+
 </header>
 
 <main class="container">
 
 <h2 class="section-title">FEATURED WORK</h2>
 <div class="video-main">
-    <iframe width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="400"
+        src="https://www.youtube.com/embed/zVHNeb4fYDM"
+        frameborder="0" allowfullscreen>
+    </iframe>
 </div>
 
 <h2 class="section-title">EXPERIENCE</h2>
@@ -207,25 +209,25 @@ footer {
 <div class="exp-card">
     <span>1 YEAR</span>
     <h3>Senior NLE Editor</h3>
-    <p>92 NEWS HD</p>
+    <p><a href="https://www.youtube.com/@92newshdTv/videos" target="_blank">92 NEWS HD</a></p>
 </div>
 
 <div class="exp-card">
     <span>1 YEAR</span>
     <h3>Digital Content Specialist</h3>
-    <p>DAILY PAKISTAN</p>
+    <p><a href="https://www.youtube.com/@dailypakistan" target="_blank">DAILY PAKISTAN</a></p>
 </div>
 
 <div class="exp-card">
     <span>2 YEARS</span>
     <h3>NLE Editor</h3>
-    <p>DUNYA NEWS</p>
+    <p><a href="https://www.youtube.com/@DunyaNewsOfficial" target="_blank">DUNYA NEWS</a></p>
 </div>
 
 <div class="exp-card">
     <span>1 YEAR</span>
     <h3>Video Editor</h3>
-    <p>LAHORE RANG</p>
+    <p><a href="https://www.youtube.com/results?search_query=lahore+rang+tv" target="_blank">LAHORE RANG</a></p>
 </div>
 
 </div>
@@ -242,7 +244,7 @@ footer {
 </main>
 
 <footer>
-    <p>6+ Years of Professional Experience</p>
+    <p>4+ Years of Professional Experience</p>
 </footer>
 
 </body>
