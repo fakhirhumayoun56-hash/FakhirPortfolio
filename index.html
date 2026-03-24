@@ -9,35 +9,25 @@
 
 <style>
 :root {
-    --primary: #00f0ff;
-    --bg: #050505;
-    --glass: rgba(255,255,255,0.05);
+    --gold: #d4a85a;
+    --cream: #f2d2a2;
+    --dark: #0f1720;
 }
 
+/* BACKGROUND */
 body {
     margin: 0;
     font-family: 'Outfit', sans-serif;
-    background: radial-gradient(circle at top, #0a0a0a, #000);
     color: white;
-    overflow-x: hidden;
+    background: linear-gradient(135deg, #f2d2a2, #d4a85a, #0f1720);
+    background-size: 300% 300%;
+    animation: bgMove 10s ease infinite;
 }
 
-/* Glow background animation */
-body::before {
-    content: "";
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(0,240,255,0.2), transparent);
-    top: -200px;
-    left: -200px;
-    filter: blur(100px);
-    animation: float 10s infinite alternate;
-}
-
-@keyframes float {
-    from { transform: translate(0,0); }
-    to { transform: translate(200px,200px); }
+@keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 .container {
@@ -47,37 +37,58 @@ body::before {
 }
 
 /* HERO */
-header {
+.hero {
     text-align: center;
-    padding: 5rem 0;
+    padding: 4rem 0;
 }
 
+/* PROFILE IMAGE */
+.profile-wrapper {
+    width: 180px;
+    height: 180px;
+    margin: auto;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, var(--gold), var(--cream));
+    box-shadow: 0 0 40px rgba(212,168,90,0.6);
+    animation: float 4s ease-in-out infinite;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* TEXT */
 .hero-title {
-    font-size: 3.5rem;
-    background: linear-gradient(90deg, #00f0ff, #0070f3);
+    font-size: 3rem;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #0f1720, #d4a85a);
     -webkit-background-clip: text;
     color: transparent;
-    animation: fadeUp 1s ease;
 }
 
 .hero-subtitle {
-    color: #aaa;
+    color: #ddd;
     margin-top: 10px;
-    animation: fadeUp 1.3s ease;
 }
 
 .contact-bar {
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
     gap: 20px;
-    color: #777;
-    animation: fadeUp 1.6s ease;
-}
-
-@keyframes fadeUp {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
+    color: #ccc;
+    font-size: 0.9rem;
 }
 
 /* SECTION */
@@ -89,10 +100,9 @@ header {
 
 .section-title::after {
     content: "";
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
     display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
     margin-top: 10px;
 }
 
@@ -116,21 +126,20 @@ header {
 }
 
 .exp-card {
-    background: var(--glass);
+    background: rgba(255,255,255,0.08);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 20px;
     transition: 0.4s;
-    transform-style: preserve-3d;
 }
 
 .exp-card:hover {
     transform: rotateY(5deg) rotateX(5deg) scale(1.05);
-    box-shadow: 0 0 25px rgba(0,240,255,0.3);
+    box-shadow: 0 0 25px rgba(212,168,90,0.5);
 }
 
 .exp-card h3 {
-    color: var(--primary);
+    color: var(--gold);
     margin: 5px 0;
 }
 
@@ -144,13 +153,13 @@ header {
 .skill-chip {
     padding: 10px 18px;
     border-radius: 30px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.1);
     transition: 0.3s;
 }
 
 .skill-chip:hover {
-    background: var(--primary);
+    background: var(--gold);
     color: black;
     transform: scale(1.1);
 }
@@ -159,7 +168,7 @@ header {
 footer {
     text-align: center;
     padding: 4rem 0;
-    color: #666;
+    color: #ccc;
 }
 
 </style>
@@ -167,14 +176,22 @@ footer {
 
 <body>
 
-<header class="container">
+<header class="container hero">
+
+    <!-- REPLACE IMAGE PATH HERE -->
+    <div class="profile-wrapper">
+        <img src="Fakhir%20Picture.jpeg" class="profile-img">
+    </div>
+
     <h1 class="hero-title">FAKHIR HUMAYOUN</h1>
     <div class="hero-subtitle">Senior Video Editor | Post-Production Specialist</div>
+
     <div class="contact-bar">
-        <span>📍 Lahore</span>
+        <span>📍 Lahore, PK</span>
         <span>📞 +92 344 0418397</span>
         <span>✉️ fakhirhumayoun56@gmail.com</span>
     </div>
+
 </header>
 
 <main class="container">
@@ -215,8 +232,8 @@ footer {
 
 <h2 class="section-title">SOFTWARE</h2>
 <div class="skills-container">
-<div class="skill-chip">Premiere Pro</div>
 <div class="skill-chip">Final Cut Pro</div>
+<div class="skill-chip">Premiere Pro</div>
 <div class="skill-chip">After Effects</div>
 <div class="skill-chip">Photoshop</div>
 <div class="skill-chip">Color Grading</div>
@@ -225,7 +242,7 @@ footer {
 </main>
 
 <footer>
-    <p>6+ Years Experience</p>
+    <p>6+ Years of Professional Experience</p>
 </footer>
 
 </body>
