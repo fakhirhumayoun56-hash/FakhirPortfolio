@@ -3,126 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Editor Portfolio</title>
+    <title>Fakhir Humayoun | Senior Video Editor Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f0f0f;
-            --text-color: #ffffff;
-            --accent-color: #ff3e3e; /* Cinematic Red */
+            --primary: #0070f3; /* Professional Blue */
+            --bg: #0a0a0a;
+            --surface: #161616;
+            --text: #ededed;
+            --text-dim: #a0a0a0;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Header & Hero */
         header {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200') center/cover;
+            padding: 5rem 0 3rem 0;
+            border-bottom: 1px solid #333;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem;
+        .hero-title { font-size: 3.5rem; margin: 0; font-weight: 700; letter-spacing: -1px; }
+        .hero-subtitle {
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 0.5rem;
         }
 
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        .subtitle { color: var(--accent-color); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        .contact-bar {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
 
-        /* Video Grid */
-        .video-grid {
+        /* Experience Section */
+        .section-title {
+            font-size: 1.8rem;
+            margin: 4rem 0 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: #333;
+            flex-grow: 1;
+        }
+
+        .exp-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            margin-top: 3rem;
         }
 
-        .video-card {
-            background: #1a1a1a;
-            border-radius: 8px;
+        .exp-card {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .exp-card h3 { margin: 0; color: var(--primary); }
+        .exp-card .company { font-weight: bold; margin-bottom: 0.5rem; display: block; }
+        .exp-card .date { font-size: 0.85rem; color: var(--text-dim); }
+
+        /* Skills Chips */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-chip {
+            background: #222;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #333;
+        }
+
+        /* Video Showcase */
+        .video-main {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
         }
 
-        .video-card:hover {
-            transform: translateY(-5px);
-            border: 1px solid var(--accent-color);
+        footer {
+            padding: 5rem 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
         }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .exp-grid { grid-template-columns: 1fr; }
         }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-        }
-
-        .video-info { padding: 1.5rem; }
-        .video-info h3 { margin: 0 0 0.5rem 0; }
-        .video-info p { font-size: 0.9rem; color: #aaa; }
-
-        footer { text-align: center; padding: 4rem; opacity: 0.6; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>ALEX EDITZ</h1>
-        <p class="subtitle">Creative Video Editor & Colorist</p>
+    <header class="container">
+        <h1 class="hero-title">FAKHIR HUMAYOUN</h1>
+        <div class="hero-subtitle">Senior Video Editor | Post-Production Specialist</div>
+        <div class="contact-bar">
+            <span>📍 Lahore, PK</span>
+            <span>📞 +92 344 0418397</span>
+            <span>✉️ fakhirhumayoun56@gmail.com</span>
+        </div>
     </header>
 
-    <div class="container">
-        <section>
-            <h2>2024 Showreel</h2>
-            <div class="video-container" style="border: 2px solid var(--accent-color);">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </section>
+    <main class="container">
 
-        <section class="video-grid">
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Commercial Reel</h3>
-                    <p>Client: Nike | Role: Lead Editor & Sound Design</p>
-                </div>
-            </div>
+        <h2 class="section-title">FEATURED WORK</h2>
+        <div class="video-main">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
 
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Music Video</h3>
-                    <p>Artist: Midnight Echo | Role: Color Grading</p>
-                </div>
+        <h2 class="section-title">BROADCAST EXPERIENCE</h2>
+        <div class="exp-grid">
+            <div class="exp-card">
+                <span class="date">1 YEAR</span>
+                <h3>Senior NLE Editor</h3>
+                <span class="company">92 NEWS HD</span>
+                <p>Lead editor for high-priority national news packages and live broadcast assets.</p>
             </div>
+            <div class="exp-card">
+                <span class="date">1 YEAR</span>
+                <h3>Digital Content Specialist</h3>
+                <span class="company">DAILY PAKISTAN</span>
+                <p>Produced viral digital content for social platforms with a focus on retention.</p>
+            </div>
+            <div class="exp-card">
+                <span class="date">2 YEARS</span>
+                <h3>NLE Editor</h3>
+                <span class="company">DUNYA NEWS</span>
+                <p>Rapid-turnaround edits for breaking news and long-form archival documentaries.</p>
+            </div>
+            <div class="exp-card">
+                <span class="date">1 YEAR</span>
+                <h3>Video Editor</h3>
+                <span class="company">LAHORE RANG</span>
+                <p>Edited localized news bulletins and cultural features for regional audiences.</p>
+            </div>
+        </div>
 
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Documentary Short</h3>
-                    <p>Project: The Last Nomad | Role: Narrative Editing</p>
-                </div>
-            </div>
-        </section>
-    </div>
+        <h2 class="section-title">SOFTWARE STACK</h2>
+        <div class="skills-container">
+            <div class="skill-chip">Final Cut Pro X</div>
+            <div class="skill-chip">Final Cut Pro 7</div>
+            <div class="skill-chip">Adobe Premiere Pro</div>
+            <div class="skill-chip">After Effects (Basic)</div>
+            <div class="skill-chip">Photoshop</div>
+            <div class="skill-chip">Color Grading</div>
+            <div class="skill-chip">Multi-cam Editing</div>
+            <div class="skill-chip">Audio Mastering</div>
+        </div>
+
+    </main>
 
     <footer>
-        <p>&copy; 2026 Alex Editz Portfolio. All Rights Reserved.</p>
-        <p>Contact: editor@email.com</p>
+        <p>6+ Years of Professional Post-Production Experience</p>
+        <p>&copy; 2026 Fakhir Humayoun</p>
     </footer>
 
 </body>
