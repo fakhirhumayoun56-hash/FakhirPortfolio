@@ -9,11 +9,10 @@
 
 <style>
 :root {
-    --primary: #0A66C2; /* strong blue */
-    --accent: #b45309; /* strong brown/orange */
+    --primary: #0A66C2;
+    --accent: #b45309;
 }
 
-/* BACKGROUND */
 body {
     margin: 0;
     font-family: 'Outfit', sans-serif;
@@ -21,14 +20,12 @@ body {
     background: linear-gradient(135deg, #f8f4ec, #f1e6d6);
 }
 
-/* CONTAINER */
 .container {
     max-width: 1100px;
     margin: auto;
     padding: 2rem;
 }
 
-/* HERO */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -55,7 +52,6 @@ body {
 .hero-title {
     font-size: 3rem;
     margin-top: 20px;
-    color: black;
 }
 
 .hero-subtitle {
@@ -63,37 +59,30 @@ body {
     color: #333;
 }
 
-.contact-bar {
-    margin-top: 15px;
+/* ICONS */
+.contact-icons {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    color: #444;
-    font-size: 0.9rem;
+    gap: 25px;
 }
 
-/* LINKEDIN ICON */
+.contact-icons a {
+    font-size: 24px;
+    text-decoration: none;
+}
+
+/* LINKEDIN */
 .socials {
     margin-top: 20px;
-}
-
-.socials a svg {
-    width: 32px;
-    transition: 0.3s;
-}
-
-.socials a:hover svg {
-    transform: scale(1.2);
 }
 
 /* SECTION */
 .section-title {
     font-size: 1.6rem;
     margin: 3rem 0 1rem;
-    color: black;
     border-bottom: 2px solid var(--accent);
     display: inline-block;
-    padding-bottom: 5px;
 }
 
 /* VIDEO */
@@ -102,39 +91,43 @@ body {
     overflow: hidden;
 }
 
-/* EXPERIENCE */
-.exp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* EXPERIENCE CAROUSEL */
+.exp-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.exp-track {
+    display: flex;
     gap: 20px;
+    animation: scroll 20s linear infinite;
+}
+
+.exp-wrapper:hover .exp-track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .exp-card {
+    min-width: 250px;
     background: white;
     border-radius: 10px;
     padding: 20px;
-    transition: 0.3s;
     border: 1px solid #ddd;
-}
-
-.exp-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .exp-card h3 {
     color: var(--accent);
 }
 
-/* COMPANY LINKS */
 .exp-card a {
     text-decoration: none;
     color: var(--primary);
     font-weight: bold;
-}
-
-.exp-card a:hover {
-    text-decoration: underline;
 }
 
 /* SKILLS */
@@ -148,7 +141,6 @@ body {
     padding: 10px 18px;
     border-radius: 20px;
     background: #eee;
-    transition: 0.3s;
 }
 
 .skill-chip:hover {
@@ -160,7 +152,6 @@ body {
 footer {
     text-align: center;
     padding: 4rem 0;
-    color: #444;
 }
 </style>
 </head>
@@ -176,18 +167,15 @@ footer {
     <h1 class="hero-title">FAKHIR HUMAYOUN</h1>
     <div class="hero-subtitle">Senior Video Editor | Post-Production Specialist</div>
 
-    <div class="contact-bar">
-        <span>📍 Lahore, PK</span>
-        <span>📞 +92 344 0418397</span>
-        <span>✉️ fakhirhumayoun56@gmail.com</span>
+    <div class="contact-icons">
+        <a href="https://maps.app.goo.gl/t2fYUY5R49SXu3j5A" target="_blank">📍</a>
+        <a href="tel:+923440418397">📞</a>
+        <a href="mailto:fakhirhumayoun56@gmail.com">✉️</a>
     </div>
 
-    <!-- LinkedIn Official Icon -->
     <div class="socials">
         <a href="https://www.linkedin.com/in/fakhir-humayoun-2b4b013b9/" target="_blank">
-            <svg viewBox="0 0 24 24" fill="#0A66C2">
-                <path d="M20.447 20.452H16.89V14.89c0-1.328-.024-3.036-1.85-3.036-1.851 0-2.134 1.445-2.134 2.94v5.658H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.604 0 4.267 2.372 4.267 5.455v6.286zM5.337 7.433a1.986 1.986 0 1 1 0-3.971 1.986 1.986 0 0 1 0 3.971zM6.99 20.452H3.683V9H6.99v11.452z"/>
-            </svg>
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="30">
         </a>
     </div>
 
@@ -204,32 +192,28 @@ footer {
 </div>
 
 <h2 class="section-title">EXPERIENCE</h2>
-<div class="exp-grid">
 
-<div class="exp-card">
-    <span>1 YEAR</span>
-    <h3>Senior NLE Editor</h3>
-    <p><a href="https://www.youtube.com/@92newshdTv/videos" target="_blank">92 NEWS HD</a></p>
+<div class="exp-wrapper">
+<div class="exp-track">
+
+<!-- DUPLICATE SET FOR INFINITE LOOP -->
+
+<div class="exp-card"><h3>Senior NLE Editor</h3><p><a href="https://www.youtube.com/@92newshdTv/videos" target="_blank">92 NEWS HD</a></p></div>
+<div class="exp-card"><h3>Digital Content Specialist</h3><p><a href="https://www.youtube.com/@dailypakistan" target="_blank">DAILY PAKISTAN</a></p></div>
+<div class="exp-card"><h3>NLE Editor</h3><p><a href="https://www.youtube.com/@DunyaNewsOfficial" target="_blank">DUNYA NEWS</a></p></div>
+<div class="exp-card"><h3>Video Editor</h3><p><a href="https://www.youtube.com/results?search_query=lahore+rang+tv" target="_blank">LAHORE RANG</a></p></div>
+
+<!-- NEW -->
+<div class="exp-card"><h3>Video Editor</h3><p><a href="https://www.youtube.com/@CapitalTVLive" target="_blank">CAPITAL TV</a></p></div>
+<div class="exp-card"><h3>Video Editor</h3><p><a href="https://www.youtube.com/@NeoNewsHD" target="_blank">NEO TV</a></p></div>
+<div class="exp-card"><h3>Video Editor</h3><p><a href="https://www.youtube.com/@AajNewsOfficial" target="_blank">AAJ NEWS</a></p></div>
+
+<!-- DUPLICATE AGAIN FOR LOOP -->
+<div class="exp-card"><h3>Senior NLE Editor</h3><p><a href="https://www.youtube.com/@92newshdTv/videos" target="_blank">92 NEWS HD</a></p></div>
+<div class="exp-card"><h3>Digital Content Specialist</h3><p><a href="https://www.youtube.com/@dailypakistan" target="_blank">DAILY PAKISTAN</a></p></div>
+<div class="exp-card"><h3>NLE Editor</h3><p><a href="https://www.youtube.com/@DunyaNewsOfficial" target="_blank">DUNYA NEWS</a></p></div>
+
 </div>
-
-<div class="exp-card">
-    <span>1 YEAR</span>
-    <h3>Digital Content Specialist</h3>
-    <p><a href="https://www.youtube.com/@dailypakistan" target="_blank">DAILY PAKISTAN</a></p>
-</div>
-
-<div class="exp-card">
-    <span>2 YEARS</span>
-    <h3>NLE Editor</h3>
-    <p><a href="https://www.youtube.com/@DunyaNewsOfficial" target="_blank">DUNYA NEWS</a></p>
-</div>
-
-<div class="exp-card">
-    <span>1 YEAR</span>
-    <h3>Video Editor</h3>
-    <p><a href="https://www.youtube.com/results?search_query=lahore+rang+tv" target="_blank">LAHORE RANG</a></p>
-</div>
-
 </div>
 
 <h2 class="section-title">SOFTWARE</h2>
