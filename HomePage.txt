@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editor Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --text-color: #ffffff;
+            --accent-color: #ff3e3e; /* Cinematic Red */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200') center/cover;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--accent-color); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid var(--accent-color);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .video-info { padding: 1.5rem; }
+        .video-info h3 { margin: 0 0 0.5rem 0; }
+        .video-info p { font-size: 0.9rem; color: #aaa; }
+
+        footer { text-align: center; padding: 4rem; opacity: 0.6; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ALEX EDITZ</h1>
+        <p class="subtitle">Creative Video Editor & Colorist</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>2024 Showreel</h2>
+            <div class="video-container" style="border: 2px solid var(--accent-color);">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="video-grid">
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Commercial Reel</h3>
+                    <p>Client: Nike | Role: Lead Editor & Sound Design</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Music Video</h3>
+                    <p>Artist: Midnight Echo | Role: Color Grading</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Documentary Short</h3>
+                    <p>Project: The Last Nomad | Role: Narrative Editing</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Alex Editz Portfolio. All Rights Reserved.</p>
+        <p>Contact: editor@email.com</p>
+    </footer>
+
+</body>
+</html>
